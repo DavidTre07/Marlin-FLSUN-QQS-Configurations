@@ -34,14 +34,14 @@ This is my repository for Marlin configuration files for the FLSUN QQ-S stock (w
 
 ## 1.4. 1st startup after flashing a new firmware
 
-1. Init EEPROM  
+1. Init EEPROM [*Configuration->Advanced Settings->Initialize EEPROM*]  
 2. Mount the magnetic leveling switch  
-3. Start Delta auto Calibration (Very long...)  
-4. Start Bed leveling  
+3. Start Delta auto Calibration (Very long...) [*Configuration->Delta Calibration->Auto Calibration*]  
+4. Start Bed leveling [*Motion->Level Bed*]  
 5. Now remove leveling switch  
 6. Move Head to Z=0 (Be carefull, normally it will not touch the bed but you have to verify during the move)  
-7. Configure Z probe offset with the paper test  
-8. Save configuration in EEPROM
+7. Configure Z probe offset with the paper test [*Configuration->Probe Z offset*]  
+8. Save configuration in EEPROM [*Configuration->Store settings*]
 
 ## 1.5. Hot End PID Tune
 
@@ -62,7 +62,7 @@ This is my repository for Marlin configuration files for the FLSUN QQ-S stock (w
 ## 1.9. References / Usefull Links
 
 |||
-|:---|:---|
+|:----|:---|
 |Facebook group|<https://www.facebook.com/groups/120961628750040/>|
 |Anders Sahlman Github|<https://github.com/AndersSahlman/Marlin>|
 |Interresting Anders' post|<https://www.facebook.com/groups/120961628750040/permalink/593987384780793/>|
