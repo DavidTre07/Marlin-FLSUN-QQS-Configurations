@@ -45,11 +45,25 @@ This is my repository for Marlin configuration files for the FLSUN QQ-S stock (w
 
 ## 1.5. Hot End PID Tune
 
-> TO WRITE
+For the following procedure I used Octoprint (terminal tab):  
+
+1. Start fan at max speed: **M106 S255**  
+2. Execute auto-PID: **M303 E0 S200 C8**  
+   Explanation: Hotend 0, Temp 200, 8 times  
+3. Actual Firmware configuration: M301 P28.16 I3.38 D58.69  
+   New value found : **M301 P16.90 I0.94 D75.85**
+   :warning: I installed a silicon protection around the heating block so don't use these values for your printer.
+4. Save with : **M500**
 
 ## 1.6. Bed PID Tune
 
-> TO WRITE
+For the following procedure I used Octoprint (terminal tab):  
+
+1. Execute auto-PID: **M303 E-1 S60 C8**  
+   Explanation: Bed, Temp 60, 8 times  
+2. Actual Firmware configuration: M304 P325.10 I63.35 D417.10  
+   New value found: **M304 P79.68 I15.29 D276.77**
+3. Save with: **M500**
 
 ## 1.7. Calibrate Bowden E-Step
 
