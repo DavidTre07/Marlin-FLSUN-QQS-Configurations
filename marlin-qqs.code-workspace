@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"yzhang.markdown-all-in-one", 
+			"hancel.markdown-image", 
+			"yzane.markdown-pdf",
+			"DavidAnson.vscode-markdownlint",
+			"platformio.platformio-ide"
+		]
+	}
+}
