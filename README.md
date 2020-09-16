@@ -9,12 +9,16 @@
   - [1.6. Bed PID Tune](#16-bed-pid-tune)
   - [1.7. Calibrate extruder E-Step](#17-calibrate-extruder-e-step)
   - [1.8. Calibrate dimensional print](#18-calibrate-dimensional-print)
-  - [Temperature tower](#temperature-tower)
-  - [1.9. References / Usefull Links](#19-references--usefull-links)
+  - [1.9. Temperature tower](#19-temperature-tower)
+  - [1.10. References / Usefull Links](#110-references--usefull-links)
+
+---
 
 ## 1.1. What is this ?
 
 This is my repository for Marlin configuration files for the FLSUN QQ-S stock (without mods) 3D printer.  
+
+---
 
 ## 1.2. How to use these files
 
@@ -25,6 +29,8 @@ This is my repository for Marlin configuration files for the FLSUN QQ-S stock (w
 5. Point VSCODE to Marlin folder  
 6. Compile it !  
 
+---
+
 ## 1.3. How to Flash
 
 1. When compiled, copy .pio\build\mks_robin_mini\Robin_mini.bin on a MicroSD card  
@@ -32,6 +38,8 @@ This is my repository for Marlin configuration files for the FLSUN QQ-S stock (w
 3. Insert MicroSD in the printer  
 4. Power on the printer  
 5. Printer will tell you the upgrade is in progress  
+
+---
 
 ## 1.4. 1st startup after flashing a new firmware
 
@@ -43,6 +51,8 @@ This is my repository for Marlin configuration files for the FLSUN QQ-S stock (w
 6. Move Head to Z=0 (Be carefull, normally it will not touch the bed but you have to verify during the move)  
 7. Configure Z probe offset with the paper test [*Configuration->Probe Z offset*]  
 8. Save configuration in EEPROM [*Configuration->Store settings*]
+
+---
 
 ## 1.5. Hot End PID Tune
 
@@ -56,6 +66,8 @@ For the following procedure I used Octoprint (terminal tab):
    :warning: I installed a silicon protection around the heating block so don't use these values for your printer.
 4. Save with : **M500**
 
+---
+
 ## 1.6. Bed PID Tune
 
 For the following procedure use Octoprint terminal tab:  
@@ -65,6 +77,8 @@ For the following procedure use Octoprint terminal tab:
 2. Actual Firmware configuration: M304 P325.10 I63.35 D417.10  
    New value found: **M304 P79.68 I15.29 D276.77**
 3. Save with: **M500**
+
+---
 
 ## 1.7. Calibrate extruder E-Step
 
@@ -83,15 +97,46 @@ For the following procedure use Octoprint terminal tab:
 7. If OK then disallow cold extrusion: **M302 P0**
 8. Save new value: **M500**
 
+---
+
 ## 1.8. Calibrate dimensional print
 
-> TO WRITE
+Print a dice of the size of your choice.  You can found some in the stl folder.  
+Recommended values of your slicer: 5% filling, speed 40mm/s.  
+When done use a caliper to verify the dice size.  
 
-## Temperature tower
+If you face a difference in the size you have to adjust diagonal rod size:  
+
+1. Print the curent configuration with: **M503**  
+   Look for:  
+
+   ```text
+   Delta settings: L<diagonal rod> R<radius> H<height> S<segments per sec> XYZ<tower angle trim> ABC<rod trim>  
+   M665 L280.00 R141.86 H359.31 S200.00 X-0.44 Y0.62 Z-0.18 A0.00 B0.00 C0.00
+   ```
+
+   You have to adjust *L\<diagonal rod\>*
+
+2. Calculate the new value:  
+For example if you printed a 40 mm dice but you find 40.4 mm:  
+calculate the new value: *CurrentValue\*40/MesuredSize*  (280*40/40.4=277.23)  
+3. Configure the new value: **M665 L277.23**
+
+As you modfied the Diagonal Rod size, you have to restart a "Delta auto Calibration" which take a long time, so:
+
+- print slowly
+- pay attention of the mesured size of your dice  
+  (for example the first layer is usually larger so try to make mesurement without the first layer)
+
+---
+
+## 1.9. Temperature tower
 
 > To WRITE
 
-## 1.9. References / Usefull Links
+---
+
+## 1.10. References / Usefull Links
 
 |||
 |:----|:---|
