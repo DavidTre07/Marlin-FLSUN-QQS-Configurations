@@ -7,8 +7,9 @@
   - [1.4. 1st startup after flashing a new firmware](#14-1st-startup-after-flashing-a-new-firmware)
   - [1.5. Hot End PID Tune](#15-hot-end-pid-tune)
   - [1.6. Bed PID Tune](#16-bed-pid-tune)
-  - [1.7. Calibrate Bowden E-Step](#17-calibrate-bowden-e-step)
+  - [1.7. Calibrate extruder E-Step](#17-calibrate-extruder-e-step)
   - [1.8. Calibrate dimensional print](#18-calibrate-dimensional-print)
+  - [Temperature tower](#temperature-tower)
   - [1.9. References / Usefull Links](#19-references--usefull-links)
 
 ## 1.1. What is this ?
@@ -57,7 +58,7 @@ For the following procedure I used Octoprint (terminal tab):
 
 ## 1.6. Bed PID Tune
 
-For the following procedure I used Octoprint (terminal tab):  
+For the following procedure use Octoprint terminal tab:  
 
 1. Execute auto-PID: **M303 E-1 S60 C8**  
    Explanation: Bed, Temp 60, 8 times  
@@ -65,13 +66,30 @@ For the following procedure I used Octoprint (terminal tab):
    New value found: **M304 P79.68 I15.29 D276.77**
 3. Save with: **M500**
 
-## 1.7. Calibrate Bowden E-Step
+## 1.7. Calibrate extruder E-Step
 
-> TO WRITE
+For the following procedure use Octoprint terminal tab:  
+
+1. Remove the bowden on the extruder motor
+2. Allow cold extrusion: **M302 P1**
+3. Relative mode: **M83**
+4. Extrude 30 cm at 200mm/min: **G1 E300 F500**
+5. Check if the length is 30 cm
+6. If not OK:
+   - Check the current steps/mm: **M92** (Only the E value will be changed)
+   - Calculate new E-Steps: *CurrentValue\*300/MesuredLength*
+   - Configure the new steps/mm: **M92 E391**
+   - Restart from step 3.
+7. If OK then disallow cold extrusion: **M302 P0**
+8. Save new value: **M500**
 
 ## 1.8. Calibrate dimensional print
 
 > TO WRITE
+
+## Temperature tower
+
+> To WRITE
 
 ## 1.9. References / Usefull Links
 
@@ -82,3 +100,5 @@ For the following procedure I used Octoprint (terminal tab):
 |Interresting Anders' post|<https://www.facebook.com/groups/120961628750040/permalink/593987384780793/>|
 |Flsun QQ/QQS FAQ|<https://docs.google.com/document/d/1b_2N7NpQN2e96VPfVc_poLPOWwkM93tdAHZWOD4WEw8/edit?usp=sharing>|
 |WIFI upgrade|<https://www.facebook.com/groups/120961628750040/?post_id=623723315140533>|
+|Extruder calibration|https://mattshub.com/blog/2017/04/19/extruder-calibration|
+|Calibration Hexagon|<https://www.thingiverse.com/thing:1274733>|
