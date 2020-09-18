@@ -1,7 +1,7 @@
 # 1. Marlin configuration files for FLSUN QQ-S
 
 - [1. Marlin configuration files for FLSUN QQ-S](#1-marlin-configuration-files-for-flsun-qq-s)
-  - [1.1. What is this ?](#11-what-is-this-)
+  - [1.1. Purpose of this git](#11-purpose-of-this-git)
   - [1.2. How to use these files](#12-how-to-use-these-files)
   - [1.3. How to Flash](#13-how-to-flash)
   - [1.4. 1st startup after flashing a new firmware](#14-1st-startup-after-flashing-a-new-firmware)
@@ -14,9 +14,11 @@
 
 ---
 
-## 1.1. What is this ?
+## 1.1. Purpose of this git
 
-This is my repository for Marlin configuration files for the FLSUN QQ-S stock (without mods) 3D printer.  
+This is a repository for FLSUN QQ-S Marlin configuration files,  
+The printer is a stock one (without mods).  
+You will find also in this readme some How To for configuring / tuning your delta printer.  
 
 ---
 
@@ -101,6 +103,7 @@ For the following procedure use Octoprint terminal tab:
 
 ## 1.8. Calibrate dimensional print
 
+**Warning**: Following not tested (in working on it):  
 Print a dice of the size of your choice.  You can found some in the stl folder.  
 Recommended values of your slicer: 5% filling, speed 40mm/s.  
 When done use a caliper to verify the dice size.  
@@ -144,6 +147,6 @@ As you modfied the Diagonal Rod size, you have to restart a "Delta auto Calibrat
 |Anders Sahlman Github|<https://github.com/AndersSahlman/Marlin>|
 |Interresting Anders' post|<https://www.facebook.com/groups/120961628750040/permalink/593987384780793/>|
 |Flsun QQ/QQS FAQ|<https://docs.google.com/document/d/1b_2N7NpQN2e96VPfVc_poLPOWwkM93tdAHZWOD4WEw8/edit?usp=sharing>|
-|WIFI upgrade|<https://www.facebook.com/groups/120961628750040/?post_id=623723315140533>|
-|Extruder calibration|https://mattshub.com/blog/2017/04/19/extruder-calibration|
+|WIFI upgrade|<https://www.facebook.com/groups/120961628750040/?post_id=623723315140533><BR><https://github.com/luc-github/ESP3D>|
+|Extruder calibration|<https://mattshub.com/blog/2017/04/19/extruder-calibration>|
 |Calibration Hexagon|<https://www.thingiverse.com/thing:1274733>|
