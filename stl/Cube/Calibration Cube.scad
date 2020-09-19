@@ -1,6 +1,6 @@
 //http://github.com/DavidTre07
 //Dice size in mm
-size=10;
+size=60;
 
 //Do not modify under this line
 letterSize=size/1.5;

@@ -26,7 +26,7 @@ You will find also in this readme some How To for configuring / tuning your delt
 
 1. Download Marlin source code (<https://marlinfw.org/>)  
 2. Extract Zip file
-3. Copy the files in the extracted Marlin zip folder  
+3. Copy this repository files in the extracted Marlin zip folder  
 4. Start VSCODE, install PlatformIO plugin  
 5. Point VSCODE to Marlin folder  
 6. Compile it !  
@@ -48,24 +48,25 @@ You will find also in this readme some How To for configuring / tuning your delt
 1. Init EEPROM [*Configuration->Advanced Settings->Initialize EEPROM*]  
 2. Mount the magnetic leveling switch  
 3. Start Delta auto Calibration (Very long...) [*Configuration->Delta Calibration->Auto Calibration*]  
-4. Start Bed leveling [*Motion->Level Bed*]  
-5. Now remove leveling switch  
-6. Move Head to Z=0 (Be carefull, normally it will not touch the bed but you have to verify during the move)  
-7. Configure Z probe offset with the paper test [*Configuration->Probe Z offset*]  
-8. Save configuration in EEPROM [*Configuration->Store settings*]
+4. Heat up the hotend + Bed
+5. Start Bed leveling [*Motion->Level Bed*]  
+6. Now remove leveling switch  
+7. Move Head to Z=0 (Be carefull, normally it will not touch the bed but you have to verify during the move)  
+8. Configure Z probe offset with the paper test [*Configuration->Probe Z offset*]  
+9. Save configuration in EEPROM [*Configuration->Store settings*]
 
 ---
 
 ## 1.5. Hot End PID Tune
 
-For the following procedure I used Octoprint (terminal tab):  
+For the following procedure I used Octoprint terminal tab:  
 
 1. Start fan at max speed: **M106 S255**  
 2. Execute auto-PID: **M303 E0 S200 C8**  
    Explanation: Hotend 0, Temp 200, 8 times  
 3. Actual Firmware configuration: M301 P28.16 I3.38 D58.69  
-   New value found : **M301 P16.90 I0.94 D75.85**
-   :warning: I installed a silicon protection around the heating block so don't use these values for your printer.
+   New value found : **M301 P16.90 I0.94 D75.85**  
+   :warning: Warning: I installed a silicon protection around the heating block so don't use these values for your printer.
 4. Save with : **M500**
 
 ---
@@ -103,7 +104,6 @@ For the following procedure use Octoprint terminal tab:
 
 ## 1.8. Calibrate dimensional print
 
-**Warning**: Following not tested (in working on it):  
 Print a dice of the size of your choice.  You can found some in the stl folder.  
 Recommended values of your slicer: 5% filling, speed 40mm/s.  
 When done use a caliper to verify the dice size.  
@@ -121,21 +121,33 @@ If you face a difference in the size you have to adjust diagonal rod size:
    You have to adjust *L\<diagonal rod\>*
 
 2. Calculate the new value:  
-For example if you printed a 40 mm dice but you find 40.4 mm:  
-calculate the new value: *CurrentValue\*40/MesuredSize*  (280*40/40.4=277.23)  
-3. Configure the new value: **M665 L277.23**
+For example if you printed a 100 mm dice but you find 99.8 mm:  
+calculate the new value: *CurrentValue\*40/MesuredSize*  (280*100/99.8=280.56)  
 
-As you modfied the Diagonal Rod size, you have to restart a "Delta auto Calibration" which take a long time, so:
+3. Configure the new value: **M665 L280.56**
 
-- print slowly
+4. As you modfied the Diagonal Rod size, you have to redo:
+   - Delta auto Calibration: **G33**  
+   - Hot end and bed heating: **M104 S200** + **M190 S60**
+   - Bed leveling: **G29**
+   - Probe Z offset (paper test)
+   - End of hot end and bed heating: **M104 S0; M140 S0**
+
+Delta auto calibration + Bed leveling + ... take long time, so:
+
+- print slowly the dice
+- a small dice is nice because it print in a short time but a big dice would provide you better accuracy  
+  I use a 1 cm dice for the first try then  
+  2 cm dice for next adjustement  
+  and finally a last 10 cm dice when close a final config (very long but accurate)  
 - pay attention of the mesured size of your dice  
-  (for example the first layer is usually larger so try to make mesurement without the first layer)
+  (for example the first layer is usually larger so try to make mesurement without the first layer)  
 
 ---
 
 ## 1.9. Temperature tower
 
-> To WRITE
+> TO WRITE
 
 ---
 
