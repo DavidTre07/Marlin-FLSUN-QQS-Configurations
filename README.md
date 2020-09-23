@@ -90,7 +90,7 @@ For the following procedure use Octoprint terminal tab:
 1. Remove the bowden on the extruder motor
 2. Allow cold extrusion: **M302 P1**
 3. Relative mode: **M83**
-4. Extrude 30 cm at 200mm/min: **G1 E300 F500**
+4. Extrude 30 cm at 500mm/min: **G1 E300 F500**
 5. Check if the length is 30 cm
 6. If not OK:
    - Check the current steps/mm: **M92** (Only the E value will be changed)
@@ -122,7 +122,7 @@ If you face a difference in the size you have to adjust diagonal rod size:
 
 2. Calculate the new value:  
 For example if you printed a 100 mm dice but you find 99.8 mm:  
-calculate the new value: *CurrentValue\*40/MesuredSize*  (280*100/99.8=280.56)  
+calculate the new value: *CurrentValue\*IdealSize/MesuredSize*  (280*100/99.8=280.56)  
 
 3. Configure the new value: **M665 L280.56**
 
@@ -162,3 +162,12 @@ Delta auto calibration + Bed leveling + ... take long time, so:
 |WIFI upgrade|<https://www.facebook.com/groups/120961628750040/?post_id=623723315140533><BR><https://github.com/luc-github/ESP3D>|
 |Extruder calibration|<https://mattshub.com/blog/2017/04/19/extruder-calibration>|
 |Calibration Hexagon|<https://www.thingiverse.com/thing:1274733>|
+|Calibration Dice|<https://github.com/DavidTre07/Marlin-FLSUN-QQS-Configurations/tree/master/stl/Cube>|
+|Parts for FLSUN QQS|<https://www.thingiverse.com/thing:4206957>|
+|||
+
+To Test:
+|||
+|:-|:-|
+|Octopi Delta Micro Calibration|<https://plugins.octoprint.org/plugins/DuCalibrator>|
+|||
