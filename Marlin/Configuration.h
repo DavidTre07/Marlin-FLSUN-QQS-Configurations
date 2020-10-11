@@ -496,9 +496,9 @@
     #define DEFAULT_Ki_LIST {   3.38,   3.38 }
     #define DEFAULT_Kd_LIST {  58.69,  58.69 }
   #else
-    #define DEFAULT_Kp  28.16
-    #define DEFAULT_Ki   3.38
-    #define DEFAULT_Kd  58.69
+    #define DEFAULT_Kp  16.90
+    #define DEFAULT_Ki   0.94
+    #define DEFAULT_Kd  75.85
   #endif
 #endif // PIDTEMP
 
@@ -536,9 +536,9 @@
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
   // FLSUN QQ-S stock 1.6mm aluminium heater with 4mm lattice glass
-  #define DEFAULT_bedKp 325.10
-  #define DEFAULT_bedKi 63.35
-  #define DEFAULT_bedKd 417.10
+  #define DEFAULT_bedKp 79.68
+  #define DEFAULT_bedKi 15.29
+  #define DEFAULT_bedKd 276.77
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
