@@ -8,9 +8,10 @@
   - [1.5. Hot End PID Tune](#15-hot-end-pid-tune)
   - [1.6. Bed PID Tune](#16-bed-pid-tune)
   - [1.7. Calibrate extruder E-Step](#17-calibrate-extruder-e-step)
-  - [1.8. Calibrate dimensional print](#18-calibrate-dimensional-print)
-  - [1.9. Temperature tower](#19-temperature-tower)
-  - [1.10. References / Usefull Links](#110-references--usefull-links)
+  - [1.8. Level the bed](#18-level-the-bed)
+  - [1.9. Calibrate dimensional print](#19-calibrate-dimensional-print)
+  - [1.10. Temperature tower](#110-temperature-tower)
+  - [1.11. References / Usefull Links](#111-references--usefull-links)
 
 ---
 
@@ -102,7 +103,16 @@ For the following procedure use Octoprint terminal tab:
 
 ---
 
-## 1.8. Calibrate dimensional print
+## 1.8. Level the bed
+
+Start to check if there is a mesh, if not it will start to create a new one: **G29 V1**
+Activate bed leveling : **M420 S1**
+Save configuration : **M500**
+Don't forget to configure you slicer to include a **M420 S1** just after **G28**
+
+---
+
+## 1.9. Calibrate dimensional print
 
 Print a dice of the size of your choice.  You can found some in the stl folder.  
 Recommended values of your slicer: 5% filling, speed 40mm/s.  
@@ -145,13 +155,13 @@ Delta auto calibration + Bed leveling + ... take long time, so:
 
 ---
 
-## 1.9. Temperature tower
+## 1.10. Temperature tower
 
 > TO WRITE
 
 ---
 
-## 1.10. References / Usefull Links
+## 1.11. References / Usefull Links
 
 |||
 |:----|:---|
